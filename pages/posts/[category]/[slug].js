@@ -88,7 +88,7 @@ export async function getServerSideProps({ params }) {
     'excerpt',
     'category',
     'folder'
-  ], params.category)
+  ], "user")
   const content = post.content || ''
 
   return {

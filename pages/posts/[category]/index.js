@@ -32,8 +32,8 @@ export async function getServerSideProps({ params,query: { page = 1 } }) {
     'coverImage',
     'excerpt',
     'category',
-  ],params.category)
-  const category = params.category
+  ],"user")
+  const category = "user"
   return {
     props: { 
       allPosts,
