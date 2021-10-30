@@ -100,9 +100,9 @@ export async function getServerSideProps({ params }) {
   // const content = post.content || ''
 
   const post = {
-    title:"sample",
+    title:params.slug,
     date:"2020",
-    category:"user",
+    category:params.category,
     slug:"10",
   }
 const content = 'test'
