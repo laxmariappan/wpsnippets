@@ -75,7 +75,7 @@ Tweet
 
 
 
-export async function getStaticProps({ params }) {
+export async function getServerSideProps({ params }) {
  
   const post = getPostBySlug(params.slug, [
     'title',
@@ -88,7 +88,15 @@ export async function getStaticProps({ params }) {
     'excerpt',
     'category',
     'folder'
-  ], "user")
+  ], params.category)
+  if (!post) {
+    return {
+      redirect: {
+        destination: '/',
+        permanent: false,
+      },
+    }
+  }
   const content = post.content || ''
 
   return {

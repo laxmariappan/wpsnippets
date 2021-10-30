@@ -23,7 +23,7 @@ export default function Index({ allPosts,category }) {
 
 
 
-export async function getStaticProps({ params,query: { page = 1 } }) {
+export async function getServerSideProps({ params,query: { page = 1 } }) {
   const allPosts = getPosts([
     'title',
     'date',
@@ -32,8 +32,16 @@ export async function getStaticProps({ params,query: { page = 1 } }) {
     'coverImage',
     'excerpt',
     'category',
-  ],"user")
-  const category = "user"
+  ],params.category)
+  if (!allPosts) {
+    return {
+      redirect: {
+        destination: '/',
+        permanent: false,
+      },
+    }
+  }
+  const category = params.category
   return {
     props: { 
       allPosts,
