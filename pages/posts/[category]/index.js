@@ -23,7 +23,7 @@ export default function Index({ allPosts,category }) {
 
 
 
-export async function getServerSideProps({ params,query: { page = 1 } }) {
+export async function getStaticProps({ params,query: { page = 1 } }) {
   const allPosts = getPosts([
     'title',
     'date',

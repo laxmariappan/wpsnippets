@@ -75,7 +75,7 @@ Tweet
 
 
 
-export async function getServerSideProps({ params }) {
+export async function getStaticProps({ params }) {
  
   const post = getPostBySlug(params.slug, [
     'title',
