@@ -10,6 +10,6 @@ module.exports = {
       return config
     },
     env: {
-       menu: menu.get('content'),
+       menu: menu.get('posts'),
    },
   }
