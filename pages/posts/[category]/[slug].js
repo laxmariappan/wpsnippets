@@ -3,7 +3,7 @@ import { useRouter } from 'next/router'
 import ErrorPage from 'next/error'
 import ReactMarkdown from 'react-markdown'
 import CodeBlock from "../../../components/codeblock"
-import { getPostBySlug } from '../../../lib/posts'
+//import { getPostBySlug } from '../../../lib/posts'
 import SnippetInfo from '../../../components/snippet-info'
 import Head from 'next/head'
 
@@ -77,28 +77,35 @@ Tweet
 
 export async function getServerSideProps({ params }) {
  
-  const post = getPostBySlug(params.slug, [
-    'title',
-    'date',
-    'slug',
-    'author',
-    'content',
-    'ogImage',
-    'coverImage',
-    'excerpt',
-    'category',
-    'folder'
-  ], params.category)
-  if (!post) {
-    return {
-      redirect: {
-        destination: '/',
-        permanent: false,
-      },
-    }
-  }
-  const content = post.content || ''
+  // const post = getPostBySlug(params.slug, [
+  //   'title',
+  //   'date',
+  //   'slug',
+  //   'author',
+  //   'content',
+  //   'ogImage',
+  //   'coverImage',
+  //   'excerpt',
+  //   'category',
+  //   'folder'
+  // ], params.category)
+  // if (!post) {
+  //   return {
+  //     redirect: {
+  //       destination: '/',
+  //       permanent: false,
+  //     },
+  //   }
+  // }
+  // const content = post.content || ''
 
+  const post = {
+    title:"sample",
+    date:"2020",
+    category:"user",
+    slug:"10",
+  }
+const content = 'test'
   return {
     props: {
       post: {
@@ -108,7 +115,6 @@ export async function getServerSideProps({ params }) {
     },
   }
 }
-
 
 
 
